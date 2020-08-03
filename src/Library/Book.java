@@ -2,21 +2,34 @@ package Library;
 
 public class Book extends Item {
     // Data field
-    private long ISBN;
+    private static String ISBN;
     // Constructor
-    Book(String title, String author, String edition, String publication, int year, String language, long ISBN, String subject, String status, int copy ) {
-        this.title = title;
-        this.author = author;
-        this.edition = edition;
-        this.publication = publication;
-        this.year = year;
-        this.language = language;
-        this.ISBN = ISBN;
-        this.subject = subject;
-        this.status = status;
-        this.copy = copy;
+    public Book(String title, String author, String edition, String publication, String language, String subject, String status, String ISBN, int year, int copy) {
+        Item.title = title;
+        Item.author = author;
+        Item.edition = edition;
+        Item.publication = publication;
+        Item.year = year;
+        Item.language = language;
+        Book.ISBN = ISBN;
+        Item.subject = subject;
+        Item.status = status;
+        Item.copy = copy;
     }
     // Get & Set
-    public long getISBN() { return ISBN; }
-    public void setISBN(long ISBN) { this.ISBN = ISBN; }
+    public static String getISBN() { return ISBN; }
+    public void setISBN(String ISBN) { Book.ISBN = ISBN; }
+    // Methods
+    public static String displayInfo() {
+        return Item.getTitle() + "," +
+                Item.getAuthor() + "," +
+                Item.getEdition() + "," +
+                Item.getPublication() + "," +
+                Item.getYear() + "," +
+                Item.getLanguage() + "," +
+                Book.getISBN() + "," +
+                Item.getSubject() + "," +
+                Item.getStatus() + "," +
+                Item.getCopy() + "\n";
+    }
 }
